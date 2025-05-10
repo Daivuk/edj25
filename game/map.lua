@@ -34,7 +34,7 @@ function draw_bg()
 
     love.graphics.push()
     local a = 1
-    for i = 1, 10 do
+    for i = 1, 4 do
         love.graphics.scale(1.01)
         love.graphics.translate(-camera.x * 0.01, -camera.y * 0.01 - 1) -- Why does 0.01 works here for parallax? Fix that
         love.graphics.setColor(CAUSTIC_COLOR[1], CAUSTIC_COLOR[2], CAUSTIC_COLOR[3], CAUSTIC_COLOR[4] * caustic_strength * a)

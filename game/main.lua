@@ -18,6 +18,7 @@ end
 
 function new_game()
     reset_map()
+    reset_fishes()
     camera = create_camera(0, 0, 3)
     game_state = "game"
 end
