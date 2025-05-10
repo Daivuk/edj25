@@ -1,6 +1,7 @@
 local caustic_shader = love.graphics.newShader("shaders/caustic.frag")
 local caustic_anim = 0
 local caustic_mesh = nil
+undetwater_snd = love.audio.newSource("sounds/underwater.flac", "static")
 
 function reset_map()
     caustic_anim = 0;
@@ -15,6 +16,11 @@ function reset_map()
     local caustic_texture = love.graphics.newImage("textures/caustic.png")
     caustic_texture:setWrap("repeat", "repeat")
     caustic_mesh:setTexture(caustic_texture)
+
+    undetwater_snd:setLooping(true)
+    undetwater_snd:setPitch(0.75)
+    undetwater_snd:setVolume(0.5)
+    undetwater_snd:play()
 end
 
 function update_map(dt)
@@ -22,10 +28,9 @@ function update_map(dt)
     caustic_shader:send("anim", caustic_anim)
 end
 
-function draw_bg()
-    love.graphics.clear(SEA_COLOR)
-    love.graphics.setBlendMode("add")
+function draw_caustic()
 
+    love.graphics.setBlendMode("add")
     love.graphics.setShader(caustic_shader)
 
     local caustic_strength = 0.03
@@ -47,6 +52,8 @@ function draw_bg()
 end
 
 function draw_map()
-    draw_bg()
+    love.graphics.clear(SEA_COLOR)
+    draw_caustic()
+    draw_whale()
     draw_fishes()
 end

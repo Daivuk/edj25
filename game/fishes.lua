@@ -1,8 +1,7 @@
-fishes = {} -- I know that plurial of fish is fish... but for coding purpose, I need to know if its an array of fish or not...
+local fishes = {} -- I know that plurial of fish is fish... but for coding purpose, I need to know if its an array of fish or not...
 
 local fish_sprite_sheet = love.graphics.newImage("textures/fishes.png")
 fish_sprite_sheet:setFilter("nearest", "nearest")
-print("Image loaded?", fish_sprite_sheet:getWidth(), fish_sprite_sheet:getHeight())
 
 local FISH_FRAMES = {
     love.graphics.newQuad(0, 0, 16, 16, fish_sprite_sheet:getWidth(), fish_sprite_sheet:getHeight()),
