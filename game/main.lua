@@ -65,6 +65,6 @@ function love.keypressed(key, scancode, isrepeat)
         return
     end
     if scancode == "tab" then
-        hide_exteriors = not hide_exteriors
+        toggle_interiors()
     end
 end

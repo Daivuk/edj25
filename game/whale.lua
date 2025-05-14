@@ -12,7 +12,7 @@ function reset_whale()
         y = 0,
         angle = 0,
         active = false,
-        timer = math.random(0, 20)
+        timer = math.random(0, 360)
     }
 end
 
@@ -35,7 +35,7 @@ function update_whale(dt)
         end
         if whale.timer <= 0 then
             whale.active = false
-            whale.timer = 10 + math.random(0, 20)
+            whale.timer = 10 + math.random(0, 350)
         else
             local dir_x, dir_y = angle_to_vector(whale.angle)
             whale.x = whale.x + dir_x * dt * WHALE_SPEED
